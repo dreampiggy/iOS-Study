@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>350F22C7-E062-4CC3-A80B-59CC0DD2EE4E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UIKitTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0947D491A7F63A87CCF9A1EE3A8C4F88FAA52EFF</key>
+		<string>https://github.com/lizhuoli1126/iOS-Study.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UIKitTest/UIKitTest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0947D491A7F63A87CCF9A1EE3A8C4F88FAA52EFF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lizhuoli1126/iOS-Study.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0947D491A7F63A87CCF9A1EE3A8C4F88FAA52EFF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0947D491A7F63A87CCF9A1EE3A8C4F88FAA52EFF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Playground</string>
+		</dict>
+	</array>
+</dict>
+</plist>
