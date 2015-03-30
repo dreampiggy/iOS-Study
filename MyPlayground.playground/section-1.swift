@@ -256,6 +256,35 @@ import UIKit
 //Attention! Closure is sent by reference.So if you use the same closure to some vars,they will use the same one
 
 
+//*****************SubScript****************//
+//
+//class SubString{
+//    var str:String = ""
+//    init(str:String){
+//        self.str = str
+//    }
+//    
+//    subscript(start:Int,end:Int) ->String?{
+//        if start > end {
+//            return nil
+//        }
+//        return (str as String).substringWithRange(Range(start: advance(str.startIndex, start) , end: advance(str.startIndex, end)))
+//    }
+//    
+//    subscript(index:Int) ->String?{
+//        if(index < 0 || index > countElements(str)){
+//            return nil
+//        }
+//        else{
+//            return String(Array(str)[index])
+//        }
+//    }
+//}
+//
+//var str = SubString(str: "I'm lizhuoli")
+//println(str[0,1])
+//println(str[100])
+
 //*****************Expression***************//
 //self.xxx
 //self.init()
@@ -275,57 +304,57 @@ import UIKit
 
 //****************OOP********************//
 //****************Class******************//
-class FriendPerson{
-    var name:String!
-}
-class HighCostClass{
-    
-}
-class Person{
-    var name:String = ""
-    var age:Int = 0
-    var sex:String = ""
-    lazy var fuckLazy:HighCostClass = HighCostClass()//Which member will cost many resource.Lazy make it initial later when first in use
-    let myfriend:FriendPerson = FriendPerson()
-    class var human:Bool {return true}
-    
-    init(){
-        
-    }
-    //initial
-    init(name newName:String,age newAge:Int,sex newSex:String){
-        self.name = newName
-        self.age = newAge
-        self.sex = newSex
-    }
-    //destory
-    deinit{
-    }
-    
-    internal func say(){
-        println("I'm \(name) && age\(age) && sex:\(sex)")
-    }
-    
-    internal func setName(name newName:String) {
-        self.name = newName
-    }
-    
-    internal func getName() ->String{
-        return name
-    }
-    
-    class func getHuman() ->Bool{
-        return human
-    }
-}
-var person1 = Person(name: "lizhuoli", age: 20, sex: "boy")
-var person2 = Person()
-Person.getHuman()
-person1.say()
-person1.getName()
-person2.setName(name: "look!")
-println(person2.getName())
-println(Person.human)
+//class FriendPerson{
+//    var name:String!
+//}
+//class HighCostClass{
+//    
+//}
+//class Person{
+//    var name:String = ""
+//    var age:Int = 0
+//    var sex:String = ""
+//    lazy var fuckLazy:HighCostClass = HighCostClass()//Which member will cost many resource.Lazy make it initial later when first in use
+//    let myfriend:FriendPerson = FriendPerson()
+//    class var human:Bool {return true}
+//    
+//    init(){
+//        
+//    }
+//    //initial
+//    init(name newName:String,age newAge:Int,sex newSex:String){
+//        self.name = newName
+//        self.age = newAge
+//        self.sex = newSex
+//    }
+//    //destory
+//    deinit{
+//    }
+//    
+//    internal func say(){
+//        println("I'm \(name) && age\(age) && sex:\(sex)")
+//    }
+//    
+//    internal func setName(name newName:String) {
+//        self.name = newName
+//    }
+//    
+//    internal func getName() ->String{
+//        return name
+//    }
+//    
+//    class func getHuman() ->Bool{
+//        return human
+//    }
+//}
+//var person1 = Person(name: "lizhuoli", age: 20, sex: "boy")
+//var person2 = Person()
+//Person.getHuman()
+//person1.say()
+//person1.getName()
+//person2.setName(name: "look!")
+//println(person2.getName())
+//println(Person.human)
 //
 ////Crazy? let can be changed when it is a class.Because itselft is a class that can't change but its member can be changed
 //person2.myfriend.name = "???"
@@ -392,4 +421,263 @@ println(Person.human)
 
 //Fuck! No static in class????Use class var????= =....
 
+//******************Inheritance Polyorphism***********//
+//
+//class Living{
+//    func grow(){
+//        println("I'm growing~")
+//    }
+//}
+//
+//class Animail:Living{
+//    //the child class can't override this method
+//    final func move(){
+//        
+//    }
+//}
+//
+//class Plant:Living{
+//    var leaves:Array<Int>!
+//}
+//class Fruit:Plant{
+//    var name:String = "Fruit"
+//    func show(){
+//        println("What's your name?\(name)")
+//    }
+//}
+//
+//class Peach:Fruit{
+//    override var name:String{
+//        get{
+//            return super.name
+//        }
+//        set{
+//            super.name = newValue
+//        }
+//    }
+//    override func grow() {
+//        println("I'm growing and I'm a peach~~~")
+//    }
+//    func setName(newName:String){
+//        self.name = newName
+//    }
+//}
+//
+//class Apple:Fruit{
+//    override var name:String{
+//        get{
+//            return super.name
+//        }
+//        set{
+//            super.name = newValue
+//        }
+//    }
+//    override func grow(){
+//        println("I'm growing and I'm an ~~~")
+//    }
+//}
+//var myPeach = Peach()
+//var myApple = Apple()
+//Fruit().show()
+//myPeach.grow()
+//myPeach.setName("peach~~~~~")
+//myPeach.show()
+//println("\n")
+//var FruitList:Array<Fruit> = [myPeach,myApple]
+//for fruit in FruitList{
+//    fruit.grow()
+//}
+
+//*****************Extension****************//
+//extension Int{
+//    func getIntMaxAndMin() -> (Max:Int,Min:Int){
+//        return (Max:Int.max,Min:Int.min)
+//    }
+//}
+//var myInt = 5
+//myInt.getIntMaxAndMin()
+
+//*****************Protocol****************//
+//Like interface in Java
+//protocol Bird{
+//    func song()
+//}
+//class Song{
+//    var songName:String
+//    func getSong() -> String {
+//        return self.songName
+//    }
+//    init(name:String){
+//        self.songName = name
+//    }
+//}
+//class Parrot:Bird{
+//    var mySong:Song//Combine is better sometimes than the protocol
+//    func song(){
+//        println("I'm parrot!")
+//        println(mySong.songName)
+//    }
+//    init(name:String){
+//        self.mySong = Song(name: name)
+//    }
+//}
+//class Pigeon:Bird{
+//    func song() {
+//        println("I'm a pigeon!")
+//    }
+//}
+//var myBird1:Bird = Parrot(name:"wo shi yi zhi xiao ying wo ~~~")
+//var myBird2:Bird = Pigeon()
+//myBird1.song()
+//myBird2.song()
+
+//*************Optional Chain****************//
+//var optionalValue:String? = "lalala"//? to use for check
+//if optionalValue != nil{
+//    println(optionalValue)
+//    println(countElements(optionalValue!))//! to tell the compiler that this value can not be nil
+//}
+//else{
+//    println("fuck")
+//}
+//
+//
+//class optionalOne{
+//    var name:String?
+//    init(){
+//        self.name = "lalala"
+//    }
+//}
+//class optionalTwo{
+//    var optionalValue:optionalOne? = optionalOne()
+//}
+//class optionalThree{
+//    var optionalValue:optionalTwo? = optionalTwo()
+//    func getValue() ->String?{
+//        //ok......really crazy?
+//        return optionalValue?.optionalValue?.name?
+//    }
+//}
+//
+//var myOption = optionalThree()
+//println(myOption.getValue()!)
+//
+////In a word.? to pack a type with nil,! to unpack it(But if it not packed,the runtime will throw a error)
+
+//*********************Pattern****************//
+
+//struct Student:Hashable {
+//    var no:Int?
+//    var name:Int?
+//    var hashValue:Int{
+//        return self.no!
+//    }
+//}
+//func == (lhs: Student, rhs: Student) -> Bool{
+//    return lhs.no == rhs.no
+//}
+//struct School {
+//    var name:String?
+//    var addr:String
+//}
+//
+//var students:Dictionary<Student,School> = Dictionary(minimumCapacity: 2)
+//println(students)
+//
+//
+//
+//func swapT<T>(inout a:T,inout b:T){
+//    var temp = a
+//    a = b
+//    b = temp
+//}
+//var a:Double = 2.0
+//var b:Double = 3.0
+//var aString:String = "a"
+//var bString:String = "b"
+//swapT(&a, &b)
+//println(a)
+//swapT(&aString, &bString)
+//println(bString)
+
+//*****************With NS Cocoa Framework**************//
+//import Foundation
+//
+//class swiftStyle: NSObject{
+//    func totalTest(){
+//        printResult()
+//    }
+//    
+//    func printResult(){
+//        
+//        //下面是Objective-C语法下NSString的初始化方法之一
+//        //        NSString *string = [[NSString alloc] initWithFormat:@"%@ %@",@"Hello", @"World"];
+//        
+//        var string = NSString(format:"%@ %@","hello","world")
+//        string = string.lowercaseString
+//        
+//        // 调用stringByReplacingOccurrencesOfString方法替换字符中得world位swfit
+//        string = string.stringByReplacingOccurrencesOfString("world",withString:"swift")
+//        println(string)
+//    }
+//}
+//var mySwift = swiftStyle()
+//mySwift.printResult()
+//
+//let myString:NSString = "Apple,ObjectiveC,HAHA"
+//let subString = myString.componentsSeparatedByString(",")
+//for sub:AnyObject in subString{
+//    println(sub)
+//}
+//let start:Int = 1
+//let length:Int = 2
+//var objRang = NSRange(location:start,length:length)
+//let rangOfString = myString.rangeOfString("objectivec",options:NSStringCompareOptions.CaseInsensitiveSearch)//case insensitive
+//println("\(myString.substringWithRange(rangOfString))")
+//
+//var myArray = [1,2,3,4,5,6,7]
+//var myArrayObj = NSArray(array:myArray)
+//let myIndex = NSIndexSet(indexesInRange: objRang)
+//println(myArrayObj.objectsAtIndexes(myIndex))
+//println(find(myArray,8))
+//
+//var mySetSwift = ["a","b","c","a","b","c","d"]
+//var mySet = NSSet(array:mySetSwift)
+//println(mySet)
+//println(mySet.count)
+//var myMutableSet = NSMutableSet(array: mySetSwift)
+//myMutableSet.addObject("lalala")
+//println(myMutableSet)
+
+
+let dataString = "This is a important data"
+let utf8DataString = dataString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+
+let myURL = NSURL(string: "http://www.dreampiggy.com")
+//These NSData can't read direct by other such as println file..
+let myDataForString = NSData(data: utf8DataString!)
+let myEncodeData = myDataForString.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+let myDataForURL = NSData(contentsOfURL: myURL!)
+println(myDataForString)
+println(myEncodeData)
+
+//UTF-8 ways and base64 ways
+let myDecodeString = NSString(data: myDataForString, encoding:NSUTF8StringEncoding)
+let myDecodeData = NSString(data: myDataForString, encoding:NSUTF8StringEncoding)
+
+println(myDecodeString!)
+println(myDecodeData!)
+
+var pathArray:Array = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomainMask.UserDomainMask,true)
+var defaultPath = pathArray[0] as String
+println(defaultPath)
+
+let writeResult = myEncodeData.writeToFile(defaultPath + "/1.txt", atomically: true, encoding: NSUTF8StringEncoding, error: nil)
+println(writeResult)
+var myMutableData = NSMutableData(length: 10)
+println(myMutableData)
+
+
+let myPath = NSBundle.mainBundle().pathForResource("1.txt", ofType: "txt")
+let myApplicationDirectory = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentationDirectory, NSSearchPathDomainMask.UserDomainMask, true)
 
